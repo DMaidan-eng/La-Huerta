@@ -1,0 +1,827 @@
+/* ==========================================================================
+    1. RESET & GENERAL STYLES
+   ========================================================================== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: "Inter", sans-serif;
+    background-color: #fcfdfa; /* Fondo ultra claro beige/verde */
+    color: #2c3e2b;
+    line-height: 1.6;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+ul {
+    list-style: none;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+/* Componentes de botones globales */
+.btn-primary {
+    display: inline-block;
+    background-color: #1b4332;
+    color: #ffffff;
+    padding: 0.8rem 2rem;
+    border-radius: 25px;
+    font-weight: 600;
+    transition: background 0.3s;
+}
+
+.btn-primary:hover {
+    background-color: #2d6a4f;
+}
+
+.btn-dark {
+    display: inline-block;
+    background-color: #132a13;
+    color: #ffffff;
+    padding: 0.8rem 2.5rem;
+    border-radius: 8px;
+    font-weight: bold;
+    text-transform: uppercase;
+    font-size: 0.9rem; /* Ligeramente más pequeño */
+}
+
+/* ==========================================================================
+    2. TOP BAR & HEADER
+   ========================================================================== */
+.top-bar {
+    background-color: #2d6a4f;
+    color: #ffffff;
+    font-size: 0.85rem;
+    padding: 0.5rem 4rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.top-bar-right {
+    display: flex;
+    gap: 2rem;
+}
+
+.phone-top {
+    font-weight: bold;
+}
+
+.site-header {
+    background-color: #ffffff;
+    padding: 1rem 4rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.03);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.brand-link {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.brand-logo {
+    height: 60px;
+}
+
+.brand-text h1 {
+    font-size: 1.6rem;
+    color: #1b4332;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+}
+
+.brand-text h2 {
+    font-size: 0.85rem;
+    color: #52b788;
+    font-weight: 600;
+    letter-spacing: 2px;
+}
+
+.nav-list {
+    display: flex;
+    gap: 1.8rem;
+}
+
+.nav-list a {
+    font-weight: 600;
+    color: #403d39;
+    font-size: 0.95rem;
+    padding: 0.5rem 0;
+    transition: color 0.2s;
+    position: relative; /* Para la línea inferior */
+}
+
+.nav-list a.active, .nav-list a:hover {
+    color: #2d6a4f;
+}
+
+/* Línea decorativa del enlace activo/hover */
+.nav-list a.active::after, .nav-list a:hover::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background-color: #2d6a4f;
+}
+
+.header-socials {
+    display: flex;
+    gap: 1rem;
+}
+
+.header-socials img {
+    height: 24px;
+    width: auto;
+}
+
+/* ==========================================================================
+    3. HERO SECTION
+   ========================================================================== */
+.hero-section {
+    background: linear-gradient(135deg, #e8f5e9 0%, #f1f8e9 100%);
+    padding: 4rem 4rem;
+    overflow: hidden;
+}
+
+.hero-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 2rem;
+}
+
+.hero-info {
+    flex: 1;
+    max-width: 550px;
+}
+
+.hero-info h2 {
+    font-size: 3rem;
+    color: #132a13;
+    line-height: 1.2;
+    margin-bottom: 1.5rem;
+}
+
+/* Si quieres simular la letra cursiva del diseño "frescas todos los días" */
+.highlight-script {
+    display: block;
+    font-family: 'Georgia', serif;
+    font-style: italic;
+    color: #52b788;
+    font-size: 2.5rem;
+    font-weight: 400;
+}
+
+.hero-info p {
+    font-size: 1.2rem;
+    color: #403d39;
+    margin-bottom: 2rem;
+}
+
+.hero-image {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+}
+
+.hero-image img {
+    max-height: 400px;
+    object-fit: contain;
+}
+
+/* ==========================================================================
+    4. PRODUCTOS DESTACADOS
+   ========================================================================== */
+.products-section {
+    max-width: 1200px;
+    margin: 5rem auto;
+    padding: 0 2rem;
+    text-align: center;
+}
+
+.section-title {
+    font-size: 2rem;
+    color: #132a13;
+    margin-bottom: 3rem;
+    position: relative;
+    display: inline-block;
+}
+
+/* Línea decorativa del título */
+.section-title::after {
+    content: '🌱';
+    font-size: 1rem;
+    display: block;
+    margin-top: 0.5rem;
+}
+
+.products-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 1.5rem;
+}
+
+.product-card {
+    background: #ffffff;
+    border: 1px solid #e9ecef;
+    border-radius: 12px;
+    padding: 1.5rem;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.product-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+}
+
+.product-card img {
+    height: 120px;
+    object-fit: contain;
+    margin-bottom: 1rem;
+}
+
+.product-card h3 {
+    font-size: 1.1rem;
+    color: #1b4332;
+    margin-bottom: 0.5rem;
+}
+
+.product-card .price {
+    font-weight: 700;
+    color: #52b788;
+}
+
+/* ==========================================================================
+    5. OFERTA DE LA SEMANA
+   ========================================================================== */
+.weekly-offer-section {
+    max-width: 1200px;
+    margin: 4rem auto;
+    padding: 0 2rem;
+}
+
+.offer-container {
+    background-color: #e2ebd5; /* Color verde muy suave del recuadro */
+    border-radius: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 2rem 4rem;
+    gap: 2rem;
+}
+
+.offer-img-box img {
+    max-height: 150px;
+}
+
+.offer-details {
+    flex: 1;
+}
+
+.offer-details h3 {
+    font-size: 1.8rem;
+    color: #1b4332;
+    margin-bottom: 0.5rem;
+}
+
+.offer-desc {
+    color: #403d39;
+    font-size: 1.1rem;
+}
+
+/* ==========================================================================
+    6. CARACTERISTICAS / VENTAJAS
+   ========================================================================== */
+.features-section {
+    max-width: 1200px;
+    margin: 4rem auto;
+    padding: 2rem;
+    background: #ffffff;
+    border-radius: 12px;
+    border: 1px solid #eeefec;
+    display: flex;
+    justify-content: space-around;
+    gap: 2rem;
+}
+
+.feature-item {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    max-width: 300px;
+}
+
+.feature-item img {
+    width: 45px;
+    height: 45px;
+}
+
+.feature-item h4 {
+    color: #1b4332;
+    font-size: 1.1rem;
+    margin-bottom: 0.2rem;
+}
+
+.feature-item p {
+    font-size: 0.9rem;
+    color: #6c757d;
+}
+
+/* ==========================================================================
+    7. SECCIÓN MIXTA: TESTIMONIOS Y MAPA
+   ========================================================================== */
+.info-columns-section {
+    max-width: 1200px;
+    margin: 5rem auto;
+    padding: 0 2rem;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+}
+
+.column-title {
+    font-size: 1.5rem;
+    color: #132a13;
+    margin-bottom: 2rem;
+    text-align: center;
+}
+
+.testimonial-card {
+    background: #ffffff;
+    border: 1px solid #e9ecef;
+    padding: 1.5rem;
+    border-radius: 10px;
+    margin-bottom: 1.5rem;
+    position: relative;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.02); /* Sombra suave */
+}
+
+.testimonial-card .quote {
+    font-style: italic;
+    color: #495057;
+    margin-bottom: 0.8rem;
+}
+
+.testimonial-card .author {
+    font-weight: 600;
+    color: #1b4332;
+    display: block;
+}
+
+.testimonial-card .stars {
+    color: #ffbc42;
+    margin-top: 0.3rem;
+}
+
+/* Subsección Mapa */
+.map-container {
+    position: relative;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+}
+
+.map-container img {
+    width: 100%;
+    display: block;
+}
+
+.btn-map {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #132a13;
+    color: white;
+    padding: 0.8rem 2rem;
+    border-radius: 5px;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.btn-map img {
+    height: 18px;
+    width: auto;
+}
+
+/* ==========================================================================
+    8. FOOTER MODERNO
+   ========================================================================== */
+.site-footer {
+    background-color: #1b4332;
+    color: #dad7cd;
+    padding: 4rem 4rem 1rem 4rem;
+    margin-top: 5rem;
+}
+
+.footer-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr 1fr;
+    gap: 3rem;
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+    padding-bottom: 3rem;
+}
+
+.footer-logo-title {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 1rem;
+}
+
+.footer-logo-title img {
+    height: 50px;
+}
+
+.footer-logo-title h3 {
+    color: #ffffff;
+    font-size: 1.4rem;
+}
+
+.footer-logo-title h4 {
+    color: #52b788;
+    font-size: 0.8rem;
+    letter-spacing: 1px;
+}
+
+.footer-brand p {
+    font-size: 0.9rem;
+    line-height: 1.5;
+}
+
+.footer-container h3 {
+    color: #ffffff;
+    font-size: 1.2rem;
+    margin-bottom: 1.2rem;
+}
+
+.footer-links-col a, .footer-contact-col li {
+    font-size: 0.9rem;
+    display: block;
+    margin-bottom: 0.8rem;
+    transition: color 0.2s;
+}
+
+.footer-contact-col li {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.footer-links-col a:hover {
+    color: #ffffff;
+}
+
+.footer-socials-icons {
+    display: flex;
+    gap: 1rem;
+}
+
+.footer-socials-icons img {
+    height: 32px;
+}
+
+.footer-bottom {
+    max-width: 1200px;
+    margin: 1.5rem auto 0 auto;
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.85rem;
+    color: #b7b7a4;
+}
+
+/* ==========================================================================
+    9. RESPONSIVE DESIGN (Adaptación a Móviles)
+   ========================================================================== */
+@media (max-width: 992px) {
+    .hero-container {
+        flex-direction: column;
+        text-align: center;
+    }
+    .offer-container {
+        flex-direction: column;
+        text-align: center;
+    }
+    .info-columns-section {
+        grid-template-columns: 1fr;
+        gap: 3rem;
+    }
+    .footer-container {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+@media (max-width: 768px) {
+    .top-bar, .site-header {
+        padding: 1rem;
+        flex-direction: column;
+        gap: 1rem;
+    }
+    .top-bar-right {
+        gap: 1rem;
+    }
+    .nav-list {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 1rem;
+    }
+    .features-section {
+        flex-direction: column;
+        align-items: center;
+    }
+    .footer-container {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+    .footer-bottom {
+        flex-direction: column;
+        align-items: center;
+        gap: 0.5rem;
+        text-align: center;
+    }
+}
+/* ==========================================================================
+    SECCIÓN DE PRODUCTOS (CATÁLOGO AVANZADO)
+   ========================================================================== */
+
+/* Contenedor principal de cada categoría */
+.catalog-category {
+    max-width: 1200px;
+    margin: 3rem auto;
+    padding: 0 2rem;
+}
+
+/* Títulos de las categorías (Frutas, Verduras, etc.) */
+.category-title {
+    font-size: 1.6rem;
+    color: #132a13;
+    font-weight: 700;
+    margin-bottom: 1.5rem;
+    padding-left: 12px;
+    border-left: 5px solid #52b788; /* Línea verde característica al costado */
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+/* Grilla del catálogo: Acomoda automáticamente las tarjetas según el tamaño de pantalla */
+.catalog-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 2rem;
+}
+
+/* Tarjeta individual de producto */
+.catalog-card {
+    background: #ffffff;
+    border: 1px solid #eef1ed;
+    border-radius: 16px; /* Bordes más redondeados y modernos */
+    padding: 1.5rem;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 4px 10px rgba(27, 67, 50, 0.02);
+    transition: transform 0.3s cubic-bezier(0.165, 0.84, 0.44, 1), 
+                box-shadow 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+/* Efecto Hover: La tarjeta flota suavemente y gana sombra */
+.catalog-card:hover {
+    transform: translateY(-8px);
+    border-color: #d8f3dc;
+    box-shadow: 0 12px 24px rgba(27, 67, 50, 0.08);
+}
+
+/* Contenedor de la imagen dentro de la tarjeta */
+.catalog-img-box {
+    background-color: #f7f9f6; /* Fondo ultra sutil detrás de la fruta */
+    border-radius: 12px;
+    padding: 1rem;
+    margin-bottom: 1rem;
+    height: 150px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.catalog-img-box img {
+    max-height: 100%;
+    object-fit: contain;
+    transition: transform 0.3s ease;
+}
+
+/* La fruta se agranda un poquito al pasar el mouse */
+.catalog-card:hover .catalog-img-box img {
+    transform: scale(1.08);
+}
+
+/* Texto del producto */
+.catalog-card h3 {
+    font-size: 1.15rem;
+    color: #1b4332;
+    margin-bottom: 0.4rem;
+    font-weight: 600;
+}
+
+/* Estilo del precio tipo "etiqueta/badge" */
+.catalog-card .price {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: #2d6a4f;
+    background-color: #e8f5e9;
+    display: inline-block;
+    padding: 0.2rem 0.8rem;
+    border-radius: 20px;
+    margin-bottom: 1.2rem;
+    width: fit-content;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Botón de compra rápido o WhatsApp */
+.btn-card-action {
+    background-color: #1b4332;
+    color: #ffffff;
+    border: none;
+    padding: 0.7rem 1rem;
+    border-radius: 8px;
+    font-weight: 600;
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    text-decoration: none;
+}
+
+.btn-card-action:hover {
+    background-color: #2d6a4f;
+}
+
+/* Icono dentro del botón */
+.btn-card-action::before {
+    content: '🛒';
+    font-size: 0.95rem;
+}
+
+/* Cambiar el fondo de las tarjetas en Ofertas y en Productos */
+#offers-section .catalog-card,
+#products-page-section .catalog-card {
+    background-color: #e2ebd5;
+    border-color: #cbd5c0;
+}
+
+/* Hacer que el fondo de la caja de imagen sea semi-transparente en ambas páginas */
+#offers-section .catalog-img-box,
+#products-page-section .catalog-img-box {
+    background-color: rgba(255, 255, 255, 0.5);
+}
+
+/* Cambiar el fondo de las tarjetas del catálogo en la sección de ofertas */
+#offers-section .catalog-card {
+    background-color: #e2ebd5;
+    border-color: #cbd5c0;
+}
+
+/* Opcional: Hacer que el fondo de la imagen sea transparente para que no quede un recuadro blanco */
+#offers-section .catalog-img-box {
+    background-color: rgba(255, 255, 255, 0.5); /* Blanco semi-transparente muy suave */
+}
+
+/* ==========================================================================
+    PÁGINA NOSOTROS
+   ========================================================================== */
+.about-hero {
+    text-align: center;
+    padding: 4rem 2rem 2rem 2rem;
+}
+
+.about-hero h2 {
+    font-size: 2.5rem;
+    color: #132a13;
+    margin-bottom: 0.5rem;
+}
+
+.about-hero .subtitle {
+    font-size: 1.1rem;
+    color: #52b788;
+    font-weight: 600;
+}
+
+/* Sección de la historia */
+.about-story {
+    max-width: 1200px;
+    margin: 0 auto 4rem auto;
+    padding: 2rem;
+}
+
+.story-container {
+    display: flex;
+    align-items: center;
+    gap: 4rem;
+}
+
+.story-text {
+    flex: 1;
+}
+
+.story-text h3 {
+    font-size: 1.8rem;
+    color: #1b4332;
+    margin-bottom: 1.5rem;
+}
+
+.story-text p {
+    margin-bottom: 1rem;
+    color: #403d39;
+    font-size: 1.05rem;
+}
+
+.story-image {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+}
+
+.story-image img {
+    border-radius: 12px;
+    max-height: 300px;
+    object-fit: contain;
+}
+
+/* Sección de Valores (Fondo verde como en ofertas) */
+.about-values {
+    background-color: #e2ebd5; /* El verde suave de la oferta semanal */
+    padding: 4rem 2rem;
+}
+
+.values-grid {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+}
+
+.value-card {
+    background-color: #ffffff;
+    padding: 2.5rem 2rem;
+    border-radius: 12px;
+    text-align: center;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.02);
+    border: 1px solid #eeefec;
+}
+
+.value-icon {
+    font-size: 2.5rem;
+    display: block;
+    margin-bottom: 1rem;
+}
+
+.value-card h4 {
+    font-size: 1.3rem;
+    color: #1b4332;
+    margin-bottom: 0.8rem;
+}
+
+.value-card p {
+    color: #6c757d;
+    font-size: 0.95rem;
+}
+
+/* Ajuste Responsivo para pantallas pequeñas */
+@media (max-width: 768px) {
+    .story-container {
+        flex-direction: column;
+        text-align: center;
+        gap: 2rem;
+    }
+}

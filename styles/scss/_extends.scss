@@ -1,0 +1,83 @@
+/* ==========================================================================
+   EXTENDS — Reglas compartidas (herencia @extend)
+   ========================================================================== */
+@use "variables" as *;
+@use "mixins" as *;
+
+// Botón base del sitio
+%btn-base {
+    display: inline-block;
+    border: none;
+    cursor: pointer;
+    font-weight: 600;
+    text-decoration: none;
+    @include transition-smooth;
+}
+
+// Botón redondeado (píldora) verde
+%btn-rounded {
+    background-color: $color-primary-green;
+    color: $color-white;
+    padding: 0.8rem 2rem;
+    border-radius: $radius-btn;
+    font-weight: 600;
+
+    &:hover {
+        background-color: $color-medium-green;
+        color: $color-white;
+        transform: translateY(-2px);
+    }
+}
+
+// Botón rectangular oscuro
+%btn-dark {
+    background-color: $color-dark-green;
+    color: $color-white;
+    padding: 0.8rem 2.5rem;
+    border-radius: 8px;
+    font-weight: bold;
+    text-transform: uppercase;
+    font-size: 0.9rem;
+
+    &:hover {
+        background-color: $color-primary-green;
+        color: $color-white;
+    }
+}
+
+// Tarjeta base del catálogo
+%card-base {
+    background: $color-white;
+    border: 1px solid $color-card-catalog-border;
+    border-radius: $radius-card;
+    padding: 1.5rem;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+    box-shadow: $shadow-card;
+    @include transition-smooth;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    &:hover {
+        transform: translateY(-8px);
+        border-color: $color-ultra-light-green;
+        box-shadow: $shadow-hover;
+    }
+}
+
+// Enlace de la lista de navegación
+%nav-link {
+    font-weight: 600;
+    color: $color-text-muted;
+    font-size: 0.95rem;
+    padding: 0.5rem 0;
+    transition: color 0.2s;
+    position: relative;
+
+    &:hover,
+    &.active {
+        color: $color-medium-green;
+    }
+}

@@ -1,0 +1,51 @@
+/* ==========================================================================
+   VARIABLES — Paleta, tipografía y medidas de La Huerta
+   ========================================================================== */
+
+// Paleta de colores
+$color-bg: #fcfdfa;
+$color-white: #ffffff;
+$color-dark-green: #132a13;
+$color-primary-green: #1b4332;
+$color-medium-green: #2d6a4f;
+$color-light-green: #52b788;
+$color-soft-bg-green: #e2ebd5;
+$color-ultra-light-green: #e8f5e9;
+$color-card-border: #e9ecef;
+$color-card-catalog-border: #eef1ed;
+$color-star: #ffbc42;
+$color-danger: #e63946;
+
+// Texto
+$color-text-main: #2c3e2b;
+$color-text-muted: #403d39;
+$color-text-light: #6c757d;
+$color-footer-text: #dad7cd;
+$color-footer-muted: #b7b7a4;
+
+// Tipografía
+$font-family-sans: "Inter", sans-serif;
+$font-family-script: "Georgia", serif;
+
+// Radios
+$radius-btn: 25px;
+$radius-card: 12px;
+$radius-badge: 20px;
+
+// Sombras
+$shadow-soft: 0 2px 10px rgba(0, 0, 0, 0.03);
+$shadow-card: 0 4px 10px rgba(27, 67, 50, 0.02);
+$shadow-hover: 0 12px 24px rgba(27, 67, 50, 0.08);
+
+// Breakpoints del sitio
+$breakpoints: (
+    xs: 320px,
+    sm: 480px,
+    md: 768px,
+    lg: 992px,
+    xl: 1200px
+);
+
+// Z-index
+$z-header: 1000;
+$z-modal: 1050;

@@ -1,0 +1,38 @@
+/* ==========================================================================
+   LA HUERTA — HOJA DE ESTILOS PRINCIPAL
+   Compilado por Live Sass Compiler -> styles/css/styles.css
+   Orden: Bootstrap (con paleta de la marca) + partials propios.
+   ========================================================================== */
+
+// Bootstrap adaptado a la identidad de La Huerta.
+// Aquí se sobrescriben las variables del framework para quitar el estilo
+// genérico y adoptar la paleta verde propia.
+@use "bootstrap/bootstrap" with (
+    $primary: #1b4332,
+    $secondary: #2d6a4f,
+    $success: #2d6a4f,
+    $info: #52b788,
+    $warning: #ffbc42,
+    $danger: #e63946,
+    $light: #fcfdfa,
+    $dark: #132a13,
+    $font-family-base: ("Inter", system-ui, sans-serif),
+    $body-bg: #fcfdfa,
+    $body-color: #2c3e2b,
+    $headings-font-weight: 700,
+    $enable-shadows: false,
+    $enable-rounded: true,
+    $spacer: 1rem
+);
+
+// --- Partials propios ---
+@use "variables" as *;
+@use "mixins" as *;
+@use "extends";
+@use "base";
+@use "header";
+@use "sections";
+@use "pages";
+@use "footer";
+@use "animations";
+@use "responsive";

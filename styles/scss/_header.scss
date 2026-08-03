@@ -1,0 +1,137 @@
+/* ==========================================================================
+   HEADER — Top bar, header y navegación
+   ========================================================================== */
+@use "variables" as *;
+@use "mixins" as *;
+@use "extends" as *;
+
+// Barra superior
+.top-bar {
+    background-color: $color-medium-green;
+    color: $color-white;
+    font-size: 0.85rem;
+    padding: 0.5rem 4rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    .top-bar-right {
+        display: flex;
+        gap: 2rem;
+    }
+
+    .phone-top {
+        font-weight: bold;
+    }
+}
+
+// Header principal (sticky)
+.site-header {
+    background-color: $color-white;
+    padding: 1rem 4rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: $shadow-soft;
+    position: sticky;
+    top: 0;
+    z-index: $z-header;
+
+    .brand-link {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+    }
+
+    .brand-logo {
+        height: 60px;
+        width: auto;
+    }
+
+    .brand-text {
+        display: flex;
+        flex-direction: column;
+
+        .brand-h1 {
+            font-size: 1.6rem;
+            color: $color-primary-green;
+            font-weight: 700;
+            letter-spacing: 0.5px;
+            line-height: 1.1;
+        }
+
+        .brand-h2 {
+            font-size: 0.85rem;
+            color: $color-light-green;
+            font-weight: 600;
+            letter-spacing: 2px;
+        }
+    }
+
+    .nav-list {
+        display: flex;
+        gap: 1.8rem;
+        margin: 0;
+
+        a {
+            @extend %nav-link;
+
+            &::after {
+                content: "";
+                position: absolute;
+                bottom: -2px;
+                left: 0;
+                width: 100%;
+                height: 2px;
+                background-color: $color-medium-green;
+                transform: scaleX(0);
+                transform-origin: left;
+                transition: transform 0.3s ease;
+            }
+
+            &:hover,
+            &.active {
+                color: $color-medium-green;
+
+                &::after {
+                    transform: scaleX(1);
+                }
+            }
+        }
+    }
+
+    .header-socials {
+        display: flex;
+        gap: 1rem;
+
+        a {
+            opacity: 0.85;
+            @include transition-smooth;
+
+            &:hover {
+                opacity: 1;
+                transform: translateY(-2px);
+            }
+        }
+
+        img {
+            height: 24px;
+            width: auto;
+        }
+    }
+}
+
+// Botón hamburguesa de Bootstrap adaptado a la marca
+.navbar-toggler {
+    border-color: $color-primary-green;
+    color: $color-primary-green;
+
+    &:focus {
+        box-shadow: 0 0 0 3px rgba($color-light-green, 0.35);
+    }
+}
+
+.navbar-toggler-icon {
+    filter: invert(22%) sepia(38%) saturate(581%) hue-rotate(110deg)
+        brightness(92%) contrast(90%);
+}

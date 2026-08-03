@@ -1,0 +1,53 @@
+/* ==========================================================================
+   ANIMATIONS — Keyframes y dinamismo (además de AOS)
+   ========================================================================== */
+
+// Flotación suave para el hero
+@keyframes float {
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-12px);
+    }
+}
+
+// Entrada del hero (fade-up)
+@keyframes fade-up {
+    from {
+        opacity: 0;
+        transform: translateY(24px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+// Aparición del hero al cargar
+.hero-info {
+    animation: fade-up 0.8s ease both;
+}
+
+// Aparición progresiva de las tarjetas del catálogo (staggered)
+.products-grid .product-card,
+.catalog-grid .catalog-card,
+.menu-grid .menu-card {
+    animation: fade-up 0.6s ease both;
+
+    @for $i from 1 through 12 {
+        &:nth-child(#{$i}) {
+            animation-delay: #{$i * 0.07}s;
+        }
+    }
+}
+
+// Botón de "pedir" con un leve pulso al pasar
+.btn-card-action {
+    &:active {
+        transform: scale(0.96);
+    }
+}

@@ -1,0 +1,20 @@
+{
+  "liveSassCompile.settings.formats": [
+    {
+      "format": "expanded",
+      "extensionName": ".css",
+      "savePath": "~/../css"
+    },
+    {
+      "format": "compressed",
+      "extensionName": ".min.css",
+      "savePath": "~/../css"
+    }
+  ],
+  "liveSassCompile.settings.generateMap": true,
+  "liveSassCompile.settings.autoprefix": false,
+  "liveSassCompile.settings.showOutputWindowOnError": true,
+  "liveSassCompile.settings.excludeList": [
+    "**/scss/bootstrap/**"
+  ]
+}

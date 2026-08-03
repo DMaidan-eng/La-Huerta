@@ -1,0 +1,192 @@
+/* ==========================================================================
+   PAGES — Estilos específicos de páginas secundarias (Nosotros / Menú)
+   ========================================================================== */
+@use "variables" as *;
+@use "mixins" as *;
+@use "extends" as *;
+
+/* PÁGINA NOSOTROS */
+.about-hero {
+    text-align: center;
+    padding: 4rem 2rem 2rem;
+
+    h1 {
+        @include section-heading(2.5rem);
+        margin-bottom: 0.5rem;
+    }
+
+    .subtitle {
+        font-size: 1.1rem;
+        color: $color-light-green;
+        font-weight: 600;
+    }
+}
+
+.about-story {
+    max-width: 1200px;
+    margin: 0 auto 4rem;
+    padding: 2rem;
+
+    .story-container {
+        display: flex;
+        align-items: center;
+        gap: 4rem;
+
+        @include respond-to(md) {
+            flex-direction: column;
+            text-align: center;
+            gap: 2rem;
+        }
+    }
+
+    .story-text {
+        flex: 1;
+
+        h2 {
+            font-size: 1.8rem;
+            color: $color-primary-green;
+            margin-bottom: 1.5rem;
+        }
+
+        p {
+            margin-bottom: 1rem;
+            color: $color-text-muted;
+            font-size: 1.05rem;
+        }
+    }
+
+    .story-image {
+        flex: 1;
+        @include flex-center;
+
+        img {
+            border-radius: $radius-card;
+            max-height: 300px;
+            object-fit: contain;
+            box-shadow: $shadow-card;
+        }
+    }
+}
+
+.about-values {
+    background-color: $color-soft-bg-green;
+    padding: 4rem 2rem;
+
+    .values-grid {
+        max-width: 1200px;
+        margin: 0 auto;
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 2rem;
+    }
+
+    .value-card {
+        background-color: $color-white;
+        padding: 2.5rem 2rem;
+        border-radius: $radius-card;
+        text-align: center;
+        box-shadow: $shadow-soft;
+        border: 1px solid #eeefec;
+        @include transition-smooth;
+
+        &:hover {
+            transform: translateY(-6px);
+            box-shadow: $shadow-hover;
+        }
+
+        h3 {
+            font-size: 1.3rem;
+            color: $color-primary-green;
+            margin-bottom: 0.8rem;
+        }
+
+        p {
+            color: $color-text-light;
+            font-size: 0.95rem;
+            margin: 0;
+        }
+    }
+
+    .value-icon {
+        font-size: 2.5rem;
+        display: block;
+        margin-bottom: 1rem;
+    }
+}
+
+/* PÁGINA MENÚ */
+.menu-section {
+    max-width: 1200px;
+    margin: 3rem auto 5rem;
+    padding: 0 2rem;
+
+    .menu-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 2rem;
+    }
+
+    .menu-card {
+        @extend %card-base;
+        align-items: stretch;
+        text-align: left;
+
+        .menu-top {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 1rem;
+
+            h2 {
+                font-size: 1.2rem;
+                color: $color-primary-green;
+                margin: 0;
+            }
+
+            .menu-badge {
+                background-color: $color-primary-green;
+                color: $color-white;
+                font-size: 0.7rem;
+                text-transform: uppercase;
+                letter-spacing: 0.5px;
+                padding: 0.3rem 0.6rem;
+                border-radius: $radius-btn;
+            }
+        }
+
+        .menu-list {
+            list-style: none;
+            padding: 0;
+            margin: 0 0 1.5rem;
+
+            li {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                padding: 0.5rem 0;
+                border-bottom: 1px dashed $color-card-border;
+
+                .item-name {
+                    color: $color-text-main;
+                }
+
+                .item-dots {
+                    flex: 1;
+                    border-bottom: 2px dotted $color-light-green;
+                    margin: 0 0.75rem;
+                    opacity: 0.5;
+                }
+
+                .item-price {
+                    font-weight: 700;
+                    color: $color-medium-green;
+                }
+            }
+        }
+
+        .menu-note {
+            font-size: 0.85rem;
+            color: $color-text-light;
+        }
+    }
+}

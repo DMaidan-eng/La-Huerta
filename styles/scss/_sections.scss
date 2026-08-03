@@ -1,0 +1,370 @@
+/* ==========================================================================
+   SECTIONS — Secciones del index (hero, productos, ofertas, ventajas, mixto)
+   ========================================================================== */
+@use "variables" as *;
+@use "mixins" as *;
+@use "extends" as *;
+
+// HERO
+.hero-section {
+    background: linear-gradient(135deg, $color-ultra-light-green 0%, #f1f8e9 100%);
+    padding: 4rem;
+    overflow: hidden;
+
+    .hero-container {
+        max-width: 1200px;
+        margin: 0 auto;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 2rem;
+    }
+
+    .hero-info {
+        flex: 1;
+        max-width: 550px;
+
+        h2 {
+            @include section-heading(3rem);
+            line-height: 1.2;
+            margin-bottom: 1.5rem;
+        }
+
+        p {
+            font-size: 1.2rem;
+            color: $color-text-muted;
+            margin-bottom: 2rem;
+        }
+    }
+
+    .highlight-script {
+        display: block;
+        font-family: $font-family-script;
+        font-style: italic;
+        color: $color-light-green;
+        font-size: 2.5rem;
+        font-weight: 400;
+    }
+
+    .hero-image {
+        flex: 1;
+        @include flex-center;
+
+        img {
+            max-height: 400px;
+            object-fit: contain;
+            animation: float 4s ease-in-out infinite;
+        }
+    }
+}
+
+/* PRODUCTOS DESTACADOS */
+.products-section {
+    max-width: 1200px;
+    margin: 5rem auto;
+    padding: 0 2rem;
+    text-align: center;
+
+    .section-title {
+        @include section-heading(2rem);
+        margin-bottom: 3rem;
+        position: relative;
+        display: inline-block;
+
+        &::after {
+            content: "";
+            display: block;
+            width: 60px;
+            height: 3px;
+            background: $color-light-green;
+            margin: 0.75rem auto 0;
+            border-radius: 3px;
+        }
+    }
+
+    .products-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+        gap: 1.5rem;
+    }
+
+    .product-card {
+        @extend %card-base;
+
+        img {
+            height: 120px;
+            object-fit: contain;
+            margin: 0 auto 1rem;
+        }
+
+        h3 {
+            font-size: 1.1rem;
+            color: $color-primary-green;
+            margin-bottom: 0.5rem;
+        }
+
+        .price {
+            font-weight: 700;
+            color: $color-light-green;
+        }
+    }
+}
+
+/* OFERTA DE LA SEMANA */
+.weekly-offer-section {
+    max-width: 1200px;
+    margin: 4rem auto;
+    padding: 0 2rem;
+
+    .offer-container {
+        background-color: $color-soft-bg-green;
+        border-radius: 15px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 2rem 4rem;
+        gap: 2rem;
+
+        &:hover .offer-img-box img {
+            transform: scale(1.05) rotate(-3deg);
+        }
+    }
+
+    .offer-img-box {
+        text-align: center;
+
+        img {
+            max-height: 150px;
+            transition: transform 0.4s ease;
+        }
+    }
+
+    .offer-details {
+        flex: 1;
+
+        h3 {
+            font-size: 1.8rem;
+            color: $color-primary-green;
+            margin-bottom: 0.5rem;
+        }
+    }
+
+    .offer-desc {
+        color: $color-text-muted;
+        font-size: 1.1rem;
+        margin: 0;
+    }
+}
+
+/* CARACTERÍSTICAS / VENTAJAS */
+.features-section {
+    max-width: 1200px;
+    margin: 4rem auto;
+    padding: 2rem;
+    background: $color-white;
+    border-radius: $radius-card;
+    border: 2px solid $color-card-border;
+    display: flex;
+    justify-content: space-around;
+    gap: 2rem;
+
+    .feature-item {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+        max-width: 300px;
+        @include transition-smooth;
+
+        &:hover {
+            transform: translateY(-4px);
+        }
+
+        img {
+            width: 45px;
+            height: 45px;
+            object-fit: contain;
+            flex-shrink: 0;
+        }
+
+        h4 {
+            color: $color-primary-green;
+            font-size: 1.1rem;
+            margin-bottom: 0.2rem;
+        }
+
+        p {
+            font-size: 0.9rem;
+            color: $color-text-light;
+            margin: 0;
+        }
+    }
+}
+
+/* SECCIÓN MIXTA: TESTIMONIOS Y MAPA */
+.info-columns-section {
+    max-width: 1200px;
+    margin: 5rem auto;
+    padding: 0 2rem;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+
+    .column-title {
+        font-size: 1.5rem;
+        color: $color-dark-green;
+        margin-bottom: 2rem;
+        text-align: center;
+    }
+
+    .testimonial-card {
+        background: $color-white;
+        border: 1px solid $color-card-border;
+        padding: 1.5rem;
+        border-radius: 10px;
+        margin-bottom: 1.5rem;
+        position: relative;
+        box-shadow: $shadow-soft;
+        @include transition-smooth;
+
+        &:hover {
+            box-shadow: $shadow-hover;
+        }
+
+        .quote {
+            font-style: italic;
+            color: #495057;
+            margin-bottom: 0.8rem;
+        }
+
+        .author {
+            font-weight: 600;
+            color: $color-primary-green;
+            display: block;
+        }
+
+        .stars {
+            color: $color-star;
+            margin-top: 0.3rem;
+            letter-spacing: 2px;
+        }
+    }
+
+    .map-container {
+        position: relative;
+        border-radius: $radius-card;
+        overflow: hidden;
+        box-shadow: $shadow-card;
+        line-height: 0;
+
+        iframe {
+            border: 0;
+            width: 100%;
+            height: 300px;
+            display: block;
+        }
+    }
+}
+
+/* CATÁLOGO (usado en Productos y Ofertas) */
+.catalog-category {
+    max-width: 1200px;
+    margin: 3rem auto 5rem;
+    padding: 0 2rem;
+
+    .category-title {
+        @include section-heading(1.6rem);
+        margin-bottom: 1.5rem;
+        padding-left: 12px;
+        border-left: 5px solid $color-light-green;
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+    }
+
+    .category-intro {
+        color: $color-text-muted;
+        max-width: 700px;
+        margin-bottom: 2rem;
+    }
+
+    .catalog-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+        gap: 2rem;
+    }
+
+    .catalog-card {
+        @extend %card-base;
+
+        h3 {
+            font-size: 1.15rem;
+            color: $color-primary-green;
+            margin-bottom: 0.4rem;
+            font-weight: 600;
+        }
+
+        .price {
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: $color-medium-green;
+            background-color: $color-ultra-light-green;
+            display: inline-block;
+            padding: 0.2rem 0.8rem;
+            border-radius: $radius-badge;
+            margin: 0 auto 1.2rem;
+        }
+
+        .card-description {
+            font-size: 0.9rem;
+            color: $color-text-light;
+            font-weight: 400;
+            margin-bottom: 1rem;
+        }
+    }
+
+    .catalog-img-box {
+        @include img-box();
+
+        &:hover img {
+            transform: scale(1.08);
+        }
+    }
+
+    .btn-card-action {
+        background-color: $color-primary-green;
+        color: $color-white;
+        border: none;
+        padding: 0.7rem 1rem;
+        border-radius: 8px;
+        font-weight: 600;
+        font-size: 0.9rem;
+        cursor: pointer;
+        @include transition-smooth;
+        @include flex-center;
+        gap: 0.5rem;
+        text-decoration: none;
+
+        &:hover {
+            background-color: $color-medium-green;
+            color: $color-white;
+            transform: translateY(-2px);
+        }
+
+        &::before {
+            content: "🛒";
+            font-size: 0.95rem;
+        }
+    }
+}
+
+// Modificador de fondo suave para secciones de ofertas
+#offers-section {
+    .catalog-card {
+        background-color: $color-soft-bg-green;
+        border-color: #cbd5c0;
+    }
+
+    .catalog-img-box {
+        background-color: rgba(255, 255, 255, 0.5);
+    }
+}

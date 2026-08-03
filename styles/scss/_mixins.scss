@@ -1,0 +1,60 @@
+/* ==========================================================================
+   MIXINS — Utilidades reutilizables
+   ========================================================================== */
+@use "variables" as *;
+
+// Centrado flex
+@mixin flex-center {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+// Transición suave y consistente
+@mixin transition-smooth {
+    transition: all 0.3s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+
+// Media query por breakpoint (usa el mapa de _variables.scss)
+@mixin respond-to($breakpoint) {
+    $value: map-get($breakpoints, $breakpoint);
+    @if $value {
+        @media (max-width: $value) {
+            @content;
+        }
+    } @else {
+        @error "Breakpoint #{$breakpoint} no definido en $breakpoints.";
+    }
+}
+
+// Caja de imagen estandarizada
+@mixin img-box($bg: #f7f9f6, $radius: 12px, $height: 150px) {
+    background-color: $bg;
+    border-radius: $radius;
+    height: $height;
+    @include flex-center;
+    overflow: hidden;
+
+    img {
+        max-height: 100%;
+        object-fit: contain;
+        transition: transform 0.3s ease;
+    }
+}
+
+// Título de sección/categoría con barra lateral
+@mixin section-heading($font-size) {
+    font-size: $font-size;
+    color: $color-dark-green;
+    font-weight: 700;
+}
+
+// Sombra base de tarjeta
+@mixin shadow-base {
+    box-shadow: $shadow-soft;
+}
+
+// Sombra suave para hovers
+@mixin shadow-hover {
+    box-shadow: $shadow-hover;
+}

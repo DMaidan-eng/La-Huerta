@@ -24,6 +24,7 @@
         flex: 1;
         max-width: 550px;
 
+        h1,
         h2 {
             @include section-heading(3rem);
             line-height: 1.2;

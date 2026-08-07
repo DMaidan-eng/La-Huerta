@@ -1,15 +1,40 @@
 /* ==========================================================================
    RESPONSIVE — Media queries del sitio
+   Dispositivos:
+   - PC / escritorio   : >= 992px  (estilos base, definidos en los partials)
+   - Tablet            : 481px - 991px
+   - Móvil             : <= 480px
    ========================================================================== */
 @use "variables" as *;
 @use "mixins" as *;
 
-// >= 992px (tablets horizontales)
+// ==========================================================================
+// TABLET (<= 992px) — tablets verticales y pantallas medianas
+// ==========================================================================
 @include respond-to(lg) {
+    .top-bar {
+        padding: 0.5rem 1.5rem;
+    }
+
+    .site-header {
+        padding: 1rem 1.5rem;
+    }
+
     .hero-container,
     .offer-container {
         flex-direction: column;
         text-align: center;
+    }
+
+    .hero-info {
+        max-width: 600px;
+    }
+
+    .navbar-collapse .nav-list {
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+        padding: 0.75rem 0 0.25rem;
     }
 
     .info-columns-section {
@@ -17,22 +42,37 @@
         gap: 3rem;
     }
 
+    .features-section {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 1.5rem;
+
+        .feature-item {
+            flex: 0 1 45%;
+            max-width: none;
+            justify-content: flex-start;
+        }
+    }
+
     .footer-container {
         grid-template-columns: 1fr 1fr;
     }
 }
 
-// <= 768px (tablets verticales y móviles)
+// ==========================================================================
+// MÓVIL (<= 768px) — tablets chicas y teléfonos
+// ==========================================================================
 @include respond-to(md) {
     .top-bar,
     .site-header {
-        padding: 1rem;
+        padding: 0.75rem 1rem;
         flex-direction: column;
         gap: 1rem;
     }
 
     .top-bar {
         gap: 0.25rem;
+        text-align: center;
 
         &-right {
             gap: 1rem;
@@ -41,20 +81,76 @@
         }
     }
 
-    .nav-list {
-        flex-wrap: wrap;
-        justify-content: center;
-        gap: 1rem;
+    .site-header .container {
+        row-gap: 0.75rem;
+    }
+
+    .header-socials {
+        flex: 1;
+        justify-content: flex-end;
+    }
+
+    .container {
+        padding-left: 1rem;
+        padding-right: 1rem;
+    }
+
+    .hero-section,
+    .weekly-offer-section {
+        padding: 3rem 1.25rem;
+    }
+
+    .hero-section .hero-info h1,
+    .hero-section .hero-info h2 {
+        font-size: 2.2rem;
+    }
+
+    .highlight-script {
+        font-size: 1.9rem;
+    }
+
+    .hero-image img {
+        max-height: 300px;
+    }
+
+    .products-section,
+    .info-columns-section,
+    .catalog-category,
+    .menu-section {
+        padding-left: 1.25rem;
+        padding-right: 1.25rem;
+    }
+
+    .section-title {
+        margin-bottom: 2rem;
+    }
+
+    .offer-container {
+        padding: 2rem 1.5rem;
+        gap: 1.5rem;
+    }
+
+    .offer-img-box img {
+        max-height: 120px;
+    }
+
+    .offer-details h3 {
+        font-size: 1.5rem;
     }
 
     .features-section {
         flex-direction: column;
         align-items: center;
+        padding: 2rem 1.5rem;
     }
 
     .footer-container {
         grid-template-columns: 1fr;
         gap: 2rem;
+    }
+
+    .site-footer {
+        padding: 3rem 1.5rem 1rem;
     }
 
     .footer-bottom {
@@ -64,55 +160,152 @@
         text-align: center;
     }
 
-    .hero-section,
-    .weekly-offer-section {
-        padding: 2rem 1rem;
-    }
-
-    .offer-container {
-        padding: 2rem !important;
-    }
-
-    .hero-info h2 {
-        font-size: 2.2rem;
+    .about-hero {
+        padding: 3rem 1rem 1.5rem;
     }
 }
 
-// <= 480px (móviles chicos)
+// ==========================================================================
+// MÓVIL CHICO (<= 480px) — teléfonos
+// ==========================================================================
 @include respond-to(sm) {
     .top-bar {
         font-size: 0.75rem;
+
+        .top-bar-right {
+            gap: 0.75rem;
+        }
     }
 
-    .brand-text h1 {
+    .brand-link .brand-logo {
+        height: 48px;
+    }
+
+    .brand-text .brand-h1 {
         font-size: 1.3rem;
+    }
+
+    .brand-text .brand-h2 {
+        font-size: 0.7rem;
     }
 
     .section-title {
         font-size: 1.5rem;
     }
+
+    .hero-section .hero-info h1,
+    .hero-section .hero-info h2 {
+        font-size: 1.9rem;
+    }
+
+    .hero-section .hero-info p {
+        font-size: 1rem;
+    }
+
+    .highlight-script {
+        font-size: 1.6rem;
+    }
+
+    .hero-image img {
+        max-height: 230px;
+    }
+
+    .products-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1rem;
+    }
+
+    .catalog-grid,
+    .menu-grid,
+    .values-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .catalog-img-box {
+        height: 130px;
+    }
+
+    .btn-primary,
+    .btn-dark,
+    .btn-card-action {
+        width: 100%;
+        text-align: center;
+        justify-content: center;
+    }
+
+    .offer-details h3 {
+        font-size: 1.3rem;
+    }
+
+    .offer-desc {
+        font-size: 1rem;
+    }
+
+    .feature-item {
+        flex-direction: column;
+        text-align: center;
+        gap: 0.5rem;
+    }
+
+    .map-container iframe {
+        height: 260px;
+    }
+
+    .menu-top {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.5rem;
+    }
+
+    .about-hero h1 {
+        font-size: 2rem;
+    }
+
+    .about-story {
+        padding: 1.5rem 1.25rem;
+
+        .story-image img {
+            max-height: 240px;
+        }
+    }
+
+    .footer-logo-title {
+        flex-direction: column;
+        text-align: center;
+    }
 }
 
-// <= 320px (base mínima)
+// ==========================================================================
+// BASE MÍNIMA (<= 320px)
+// ==========================================================================
 @include respond-to(xs) {
     .top-bar,
     .site-header {
-        padding: 0.75rem;
+        padding: 0.5rem 0.75rem;
+    }
+
+    .brand-link .brand-logo {
+        height: 40px;
+    }
+
+    .brand-text .brand-h1 {
+        font-size: 1.1rem;
     }
 
     .header-socials img {
         height: 20px;
     }
 
-    .products-grid,
-    .catalog-grid {
+    .products-grid {
         grid-template-columns: 1fr;
     }
 
-    .btn-primary,
-    .btn-dark {
-        display: block;
-        width: 100%;
-        text-align: center;
+    .hero-section .hero-info h1,
+    .hero-section .hero-info h2 {
+        font-size: 1.6rem;
+    }
+
+    .highlight-script {
+        font-size: 1.4rem;
     }
 }
